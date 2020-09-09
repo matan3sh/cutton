@@ -1,0 +1,25 @@
+.sponsers__container {
+  grid-template-columns: repeat(2, 1fr);
+  row-gap: 2rem;
+  padding: 1.5rem 0;
+}
+
+.sponsers__logo {
+  display: flex;
+  justify-content: center;
+}
+
+.sponsers__logo img {
+  width: 80px;
+  filter: opacity(70%);
+}
+
+.sponsers__logo img:hover {
+  filter: none;
+}
+
+@media screen and (min-width: 768px) {
+  .sponsers__container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

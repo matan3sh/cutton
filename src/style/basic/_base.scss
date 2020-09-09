@@ -1,0 +1,81 @@
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: $header-height 0 0 0;
+  font-family: $body-font;
+  font-size: $normal-font-size;
+  color: $dark-color;
+  line-height: 1.6;
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  color: $dark-color;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+*:focus {
+  outline: none;
+}
+
+.section {
+  padding: 3rem 0;
+}
+
+.section-title {
+  font-size: $h2-font-size;
+  color: $dark-color;
+  margin: $mb-4 0 $mb-1;
+  text-align: center;
+}
+
+.section-all {
+  display: block;
+  font-size: $small-font-size;
+  font-weight: $font-semi;
+  color: $dark-color-light;
+  text-align: center;
+  margin-bottom: $mb-2;
+}
+
+.wrapper {
+  margin: 0 auto;
+  max-width: 1200px;
+  box-sizing: border-box;
+  padding: 0 20px 40px 20px;
+  margin-top: 5rem;
+}
+
+@media screen and (min-width: 768px) {
+  body {
+    margin: 0;
+  }
+
+  .section-all {
+    margin-bottom: $mb-4;
+  }
+}
