@@ -5,6 +5,8 @@
 // Basics
 @import 'basic/base';
 @import 'basic/layout';
+@import 'basic/formInput';
+@import 'basic/button';
 
 // Components
 @import 'components/sections/home';
@@ -21,3 +23,8 @@
 
 // Shop
 @import 'components/shop/collection';
+
+// Auth
+@import 'components/auth/auth';
+@import 'components/auth/signin';
+@import 'components/auth/signup';

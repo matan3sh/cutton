@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const Header = () => {
   const [openMenu, setOpenMenu] = useState(false);
   // eslint-disable-next-line
-  const [navLinks, setNavLinks] = useState(['home', 'shop']);
+  const [navLinks, setNavLinks] = useState(['home', 'shop', 'contact', 'auth']);
   const [activeLink, setActiveLink] = useState('Home');
   return (
     <div className='l-header'>
@@ -24,7 +24,7 @@ const Header = () => {
                     setOpenMenu(false);
                   }}
                 >
-                  {link}
+                  {link === 'auth' ? 'sign-in' : link}
                 </Link>
               </li>
             ))}

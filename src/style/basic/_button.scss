@@ -1,0 +1,16 @@
+.button {
+  background-color: $first-color;
+  color: $white-color;
+  padding: 1rem;
+  font-weight: $font-semi;
+  transition: 0.3s;
+  border: none;
+  margin: auto;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+.button:hover {
+  background-color: $first-color-alt;
+  cursor: pointer;
+}

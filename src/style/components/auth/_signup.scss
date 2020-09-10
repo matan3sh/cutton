@@ -1,0 +1,21 @@
+.signUp {
+  margin-top: 3rem;
+}
+
+.signUp__form {
+  display: flex;
+  flex-direction: column;
+}
+
+.signUp__form input {
+  margin-bottom: 1.5rem;
+}
+
+.signUp__buttons {
+  display: flex;
+  margin: 2rem 0;
+}
+
+.signUp__buttons button {
+  width: 100%;
+}
