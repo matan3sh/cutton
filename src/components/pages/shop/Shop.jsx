@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
+import CollectionList from 'components/app/shop/CollectionList';
 
 import db from 'data/shopDB';
-import CollectionList from 'components/app/shop/CollectionList';
 
 const Shop = () => {
   const [collections, setCollections] = useState(db.getDefaultData());
