@@ -1,8 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 
-import home from '../../../../assets/img/home.png';
+import home from 'assets/img/home.png';
 
 const Home = () => {
   return (
@@ -13,9 +12,9 @@ const Home = () => {
             NEW <br />
             <span>ARRIVALS</span>
           </h1>
-          <Link to='/shop' className='button'>
+          <a href='#New' className='button'>
             GO SHOPPING
-          </Link>
+          </a>
         </div>
         <img src={home} alt='' className='home__img' />
       </div>

@@ -1,7 +1,7 @@
 import React from 'react';
 
-import footerstore1 from '../../../../assets/img/footerstore1.png';
-import footerstore2 from '../../../../assets/img/footerstore2.png';
+import footerstore1 from 'assets/img/footerstore1.png';
+import footerstore2 from 'assets/img/footerstore2.png';
 
 const Footer = () => {
   return (
@@ -9,7 +9,7 @@ const Footer = () => {
       <div className='footer__container bd-grid'>
         <div className='footer__box'>
           <h3 className='footer__title'>Cutton</h3>
-          <p className='footer__deal'>Products Store</p>
+          <p className='footer__deal'>Shopping Store</p>
           <a href='#/'>
             <img src={footerstore1} alt='' className='footer__store' />
           </a>

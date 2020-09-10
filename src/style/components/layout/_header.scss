@@ -34,6 +34,7 @@
 .nav__link {
   color: $dark-color;
   font-weight: $font-semi;
+  text-transform: capitalize;
 }
 
 .nav__link:hover {

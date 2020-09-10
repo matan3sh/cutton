@@ -7,7 +7,6 @@ import Offer from './sections/Offer';
 import New from './sections/New';
 import NewsLetter from './sections/NewsLetter';
 import Sponsers from './sections/Sponsers';
-import Footer from './sections/Footer';
 
 const App = () => {
   return (
@@ -19,7 +18,6 @@ const App = () => {
       <New />
       <NewsLetter />
       <Sponsers />
-      <Footer />
     </>
   );
 };

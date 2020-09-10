@@ -4,25 +4,20 @@ import { Link } from 'react-router-dom';
 const Header = () => {
   const [openMenu, setOpenMenu] = useState(false);
   // eslint-disable-next-line
-  const [navLinks, setNavLinks] = useState([
-    'Home',
-    'Featured',
-    'New',
-    'Subscribe',
-  ]);
+  const [navLinks, setNavLinks] = useState(['home', 'shop']);
   const [activeLink, setActiveLink] = useState('Home');
   return (
     <div className='l-header'>
       <nav className='nav bd-grid'>
         <Link to='/' className='nav__logo'>
-          Cutton
+          <i className='fas fa-tshirt'></i> Cutton
         </Link>
         <div className={`nav__menu ${openMenu && 'show'}`}>
           <ul className='nav__list'>
             {navLinks.map((link, index) => (
               <li className='nav__item' key={index}>
-                <a
-                  href={`#${link}`}
+                <Link
+                  to={`/${link === 'home' ? '' : link}`}
                   className={`nav__link ${activeLink === link ? 'active' : ''}`}
                   onClick={() => {
                     setActiveLink(link);
@@ -30,7 +25,7 @@ const Header = () => {
                   }}
                 >
                   {link}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
