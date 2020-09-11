@@ -7,6 +7,12 @@
   background-color: $gray-color;
 }
 
+.l-header small {
+  font-size: 10px;
+  cursor: pointer;
+  margin-left: 5px;
+}
+
 .nav {
   height: $header-height;
   display: flex;
@@ -56,7 +62,7 @@
 }
 
 .show {
-  right: 0;
+  right: -100px;
 }
 
 .active {

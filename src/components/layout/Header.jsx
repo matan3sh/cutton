@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { clearUser } from 'store/user/actions';
 
-const Header = () => {
+const Header = ({ clearUser, user }) => {
   const [openMenu, setOpenMenu] = useState(false);
-  // eslint-disable-next-line
-  const [navLinks, setNavLinks] = useState(['home', 'shop', 'contact', 'auth']);
-  const [activeLink, setActiveLink] = useState('Home');
   return (
     <div className='l-header'>
       <nav className='nav bd-grid'>
@@ -14,20 +13,58 @@ const Header = () => {
         </Link>
         <div className={`nav__menu ${openMenu && 'show'}`}>
           <ul className='nav__list'>
-            {navLinks.map((link, index) => (
-              <li className='nav__item' key={index}>
-                <Link
-                  to={`/${link === 'home' ? '' : link}`}
-                  className={`nav__link ${activeLink === link ? 'active' : ''}`}
-                  onClick={() => {
-                    setActiveLink(link);
-                    setOpenMenu(false);
-                  }}
-                >
-                  {link === 'auth' ? 'sign-in' : link}
-                </Link>
+            <li className='nav__item'>
+              <NavLink
+                to='/'
+                exact
+                className='nav__link'
+                activeClassName='active'
+                onClick={() => setOpenMenu(false)}
+              >
+                Home
+              </NavLink>
+            </li>
+            <li className='nav__item'>
+              <NavLink
+                to='/shop'
+                exact
+                className='nav__link'
+                activeClassName='active'
+                onClick={() => setOpenMenu(false)}
+              >
+                Shop
+              </NavLink>
+            </li>
+            <li className='nav__item'>
+              <NavLink
+                to='/contact'
+                exact
+                className='nav__link'
+                activeClassName='active'
+                onClick={() => setOpenMenu(false)}
+              >
+                Contact
+              </NavLink>
+            </li>
+
+            {user ? (
+              <li className='nav__item'>
+                <span className='nav__link'>{user.displayName}</span>
+                <small onClick={() => clearUser()}>(Logout)</small>
               </li>
-            ))}
+            ) : (
+              <li className='nav__item'>
+                <NavLink
+                  to='/auth'
+                  exact
+                  className='nav__link'
+                  activeClassName='active'
+                  onClick={() => setOpenMenu(false)}
+                >
+                  Sign-In
+                </NavLink>
+              </li>
+            )}
           </ul>
         </div>
 
@@ -43,4 +80,12 @@ const Header = () => {
   );
 };
 
-export default Header;
+const mapStateToProps = (state) => ({
+  user: state.auth.user,
+});
+
+const mapDispatchToProps = {
+  clearUser,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

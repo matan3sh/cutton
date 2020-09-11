@@ -15,9 +15,7 @@ const App = ({ setUser, clearUser }) => {
       if (authUser) setUser(authUser);
       else clearUser();
     });
-    return () => {
-      unsubscribe();
-    };
+    return () => unsubscribe();
   }, [setUser, clearUser]);
 
   return (
