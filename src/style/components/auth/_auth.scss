@@ -1,11 +1,8 @@
 .auth {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  place-items: center;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
-@media screen and (max-width: 710px) {
-  .auth {
-    grid-template-columns: 1fr;
-  }
+@media screen and (max-width: 780px) {
 }

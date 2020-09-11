@@ -1,4 +1,5 @@
 .signIn {
+  margin-right: 10rem;
 }
 .signIn__form {
   display: flex;
@@ -27,4 +28,28 @@
 .signIn__buttons button:last-child:hover {
   opacity: 0.8;
   cursor: pointer;
+}
+
+@media screen and (max-width: 795px) {
+  .signIn {
+    margin-right: 5rem;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .signIn {
+    margin-right: 2.5rem;
+  }
+}
+
+@media screen and (max-width: 655px) {
+  .signIn {
+    margin-right: 1rem;
+  }
+}
+
+@media screen and (max-width: 625px) {
+  .signIn {
+    margin-right: 0rem;
+  }
 }

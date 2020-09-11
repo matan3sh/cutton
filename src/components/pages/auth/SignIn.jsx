@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { FormInput, Button } from '../../app/shared';
+import { signInWithGoogle } from 'config/firebase';
 
 const SignIn = () => {
   const [email, setEmail] = useState('');
@@ -30,7 +31,7 @@ const SignIn = () => {
         />
         <div className='signIn__buttons'>
           <Button type='submit' title='Sign In' />
-          <Button title='Sign In With Google' />
+          <Button onClick={signInWithGoogle} title='Sign In With Google' />
         </div>
       </form>
     </div>
