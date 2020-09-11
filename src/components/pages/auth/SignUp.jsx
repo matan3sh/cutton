@@ -15,15 +15,11 @@ const SignUp = ({ signUp }) => {
       alert('Passowrd Dont Match!');
       return;
     }
-    try {
-      await signUp(fullName, email, password);
-      setFullName('');
-      setEmail('');
-      setPassword('');
-      setConfirmPassword('');
-    } catch (error) {
-      console.error(error);
-    }
+    await signUp(fullName, email, password);
+    setFullName('');
+    setEmail('');
+    setPassword('');
+    setConfirmPassword('');
   };
 
   return (

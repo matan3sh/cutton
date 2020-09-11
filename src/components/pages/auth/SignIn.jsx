@@ -10,13 +10,9 @@ const SignIn = ({ signIn }) => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    try {
-      await signIn(email, password);
-      setEmail('');
-      setPassword('');
-    } catch (error) {
-      console.error(error);
-    }
+    await signIn(email, password);
+    setEmail('');
+    setPassword('');
   };
 
   return (
