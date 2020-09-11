@@ -1,15 +1,22 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
+import { signIn } from 'store/user/actions';
 import { FormInput, Button } from '../../app/shared';
 import { signInWithGoogle } from 'config/firebase';
 
-const SignIn = () => {
+const SignIn = ({ signIn }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
-    setEmail('');
-    setPassword('');
+    try {
+      await signIn(email, password);
+      setEmail('');
+      setPassword('');
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
@@ -38,4 +45,8 @@ const SignIn = () => {
   );
 };
 
-export default SignIn;
+const mapDispatchToProps = {
+  signIn,
+};
+
+export default connect(null, mapDispatchToProps)(SignIn);

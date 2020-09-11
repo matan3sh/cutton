@@ -16,15 +16,16 @@ const SignUp = ({ signUp }) => {
       return;
     }
     try {
-      signUp(fullName, email, password);
+      await signUp(fullName, email, password);
+      setFullName('');
+      setEmail('');
+      setPassword('');
+      setConfirmPassword('');
     } catch (error) {
       console.error(error);
     }
-    setFullName('');
-    setEmail('');
-    setPassword('');
-    setConfirmPassword('');
   };
+
   return (
     <div className='signUp'>
       <h2>I Don't have an Account</h2>

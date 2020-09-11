@@ -33,3 +33,12 @@ export const signUp = (displayName, email, password) => async (dispatch) => {
     console.error(error);
   }
 };
+
+export const signIn = (email, password) => async (dispatch) => {
+  try {
+    const authUser = await auth.signInWithEmailAndPassword(email, password);
+    dispatch({ type: 'SET_USER', payload: authUser });
+  } catch (err) {
+    alert(err.message);
+  }
+};
