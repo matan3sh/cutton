@@ -1,10 +1,10 @@
-import { auth } from 'config/firebase';
+import { auth, createUserProfileDocument } from 'config/firebase';
 
 export const setUser = (user) => async (dispatch) => {
   try {
     dispatch({ type: 'SET_USER', payload: user });
-  } catch (err) {
-    console.log(err);
+  } catch (error) {
+    console.error(error);
   }
 };
 
@@ -12,15 +12,24 @@ export const clearUser = () => async (dispatch) => {
   try {
     auth.signOut();
     dispatch({ type: 'CLEAR_USER' });
-  } catch (err) {
-    console.log(err);
+  } catch (error) {
+    console.error(error);
   }
 };
 
 export const setUserProfile = (user) => async (dispatch) => {
   try {
     dispatch({ type: 'SET_USER_PROFILE', payload: user });
-  } catch (err) {
-    console.log(err);
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+export const signUp = (displayName, email, password) => async (dispatch) => {
+  try {
+    const { user } = await auth.createUserWithEmailAndPassword(email, password);
+    await createUserProfileDocument(user, { displayName });
+  } catch (error) {
+    console.error(error);
   }
 };

@@ -21,7 +21,7 @@ const App = ({ setUser, clearUser, setUserProfile }) => {
       } else clearUser();
     });
     return () => unsubscribe();
-  }, [setUser, clearUser]);
+  }, [setUser, clearUser, setUserProfile]);
 
   return (
     <Router>

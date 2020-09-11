@@ -1,14 +1,25 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
+import { signUp } from 'store/user/actions';
 import { FormInput, Button } from '../../app/shared';
 
-const SignUp = () => {
+const SignUp = ({ signUp }) => {
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
+    if (password !== confirmPassword) {
+      alert('Passowrd Dont Match!');
+      return;
+    }
+    try {
+      signUp(fullName, email, password);
+    } catch (error) {
+      console.error(error);
+    }
     setFullName('');
     setEmail('');
     setPassword('');
@@ -22,7 +33,7 @@ const SignUp = () => {
         <FormInput
           label='Full Name'
           value={fullName}
-          type='email'
+          type='text'
           handleChange={(e) => setFullName(e.target.value)}
         />
         <FormInput
@@ -51,4 +62,8 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+const mapDispatchToProps = {
+  signUp,
+};
+
+export default connect(null, mapDispatchToProps)(SignUp);
