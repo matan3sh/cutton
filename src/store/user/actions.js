@@ -16,3 +16,11 @@ export const clearUser = () => async (dispatch) => {
     console.log(err);
   }
 };
+
+export const setUserProfile = (user) => async (dispatch) => {
+  try {
+    dispatch({ type: 'SET_USER_PROFILE', payload: user });
+  } catch (err) {
+    console.log(err);
+  }
+};

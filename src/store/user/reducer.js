@@ -1,5 +1,6 @@
 const initialState = {
-  user: null,
+  userAuth: null,
+  userProfile: null,
 };
 
 export default function reducer(state = initialState, action) {
@@ -7,12 +8,18 @@ export default function reducer(state = initialState, action) {
     case 'SET_USER':
       return {
         ...state,
-        user: action.payload,
+        userAuth: action.payload,
       };
     case 'CLEAR_USER':
       return {
         ...state,
-        user: null,
+        userAuth: null,
+        userProfile: null,
+      };
+    case 'SET_USER_PROFILE':
+      return {
+        ...state,
+        userProfile: action.payload,
       };
     default:
       return state;

@@ -3,7 +3,7 @@ import { Link, NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { clearUser } from 'store/user/actions';
 
-const Header = ({ clearUser, user }) => {
+const Header = ({ clearUser, userAuth }) => {
   const [openMenu, setOpenMenu] = useState(false);
   return (
     <div className='l-header'>
@@ -47,9 +47,9 @@ const Header = ({ clearUser, user }) => {
               </NavLink>
             </li>
 
-            {user ? (
+            {userAuth ? (
               <li className='nav__item'>
-                <span className='nav__link'>{user.displayName}</span>
+                <span className='nav__link'>{userAuth.displayName}</span>
                 <small onClick={() => clearUser()}>(Logout)</small>
               </li>
             ) : (
@@ -81,7 +81,7 @@ const Header = ({ clearUser, user }) => {
 };
 
 const mapStateToProps = (state) => ({
-  user: state.auth.user,
+  userAuth: state.auth.userAuth,
 });
 
 const mapDispatchToProps = {
