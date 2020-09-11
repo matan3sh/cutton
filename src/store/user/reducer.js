@@ -1,13 +1,18 @@
 const initialState = {
-  contacts: [],
+  user: null,
 };
 
 export default function reducer(state = initialState, action) {
   switch (action.type) {
-    case 'SET_CONTACTS':
+    case 'SET_USER':
       return {
         ...state,
-        contacts: action.payload,
+        user: action.payload,
+      };
+    case 'CLEAR_USER':
+      return {
+        ...state,
+        user: null,
       };
     default:
       return state;

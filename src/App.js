@@ -1,11 +1,25 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { auth } from 'config/firebase';
+
+import { connect } from 'react-redux';
+import { setUser, clearUser } from 'store/user/actions';
 
 import { Header, Footer } from 'components/layout';
 import { Main, Shop, Auth } from 'components/pages';
 import { ScrollToTop } from 'components/app/shared';
 
-function App() {
+const App = ({ setUser, clearUser }) => {
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((authUser) => {
+      if (authUser) setUser(authUser);
+      else clearUser();
+    });
+    return () => {
+      unsubscribe();
+    };
+  }, [setUser, clearUser]);
+
   return (
     <Router>
       <ScrollToTop />
@@ -18,6 +32,8 @@ function App() {
       <Footer />
     </Router>
   );
-}
+};
 
-export default App;
+const mapDispatchToProps = { setUser, clearUser };
+
+export default connect(null, mapDispatchToProps)(App);

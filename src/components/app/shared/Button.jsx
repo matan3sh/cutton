@@ -2,11 +2,7 @@ import React from 'react';
 
 const Button = ({ type, title, onClick }) => {
   return (
-    <button
-      className='button'
-      type={type ? type : ''}
-      onClick={onClick ? onClick : ''}
-    >
+    <button className='button' type={type && type} onClick={onClick && onClick}>
       {title}
     </button>
   );
