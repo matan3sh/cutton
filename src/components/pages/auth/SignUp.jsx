@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { signUp } from 'store/user/actions';
-import { FormInput, Button } from '../../app/shared';
+import { FormInput, Button } from 'components/app/shared';
 
 const SignUp = ({ signUp }) => {
   const [fullName, setFullName] = useState('');

@@ -29,6 +29,7 @@ export const signUp = (displayName, email, password) => async (dispatch) => {
   try {
     const { user } = await auth.createUserWithEmailAndPassword(email, password);
     await createUserProfileDocument(user, { displayName });
+    await signIn(email, password);
   } catch (error) {
     console.error(error);
   }

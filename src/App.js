@@ -1,5 +1,10 @@
 import React, { useEffect } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect,
+} from 'react-router-dom';
 import { auth, createUserProfileDocument } from 'config/firebase';
 
 import { connect } from 'react-redux';
@@ -9,7 +14,7 @@ import { Header, Footer } from 'components/layout';
 import { Main, Shop, Auth } from 'components/pages';
 import { ScrollToTop } from 'components/app/shared';
 
-const App = ({ setUser, clearUser, setUserProfile }) => {
+const App = ({ setUser, clearUser, setUserProfile, userAuth }) => {
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(async (authUser) => {
       if (authUser) {
@@ -20,7 +25,9 @@ const App = ({ setUser, clearUser, setUserProfile }) => {
         });
       } else clearUser();
     });
-    return () => unsubscribe();
+    return () => {
+      unsubscribe();
+    };
   }, [setUser, clearUser, setUserProfile]);
 
   return (
@@ -30,13 +37,21 @@ const App = ({ setUser, clearUser, setUserProfile }) => {
       <Switch>
         <Route exact path='/' component={Main} />
         <Route exact path='/shop' component={Shop} />
-        <Route exact path='/auth' component={Auth} />
+        <Route
+          exact
+          path='/auth'
+          render={() => (userAuth ? <Redirect to='/' /> : <Auth />)}
+        />
       </Switch>
       <Footer />
     </Router>
   );
 };
 
+const mapStateToProps = (state) => ({
+  userAuth: state.auth.userAuth,
+});
+
 const mapDispatchToProps = { setUser, clearUser, setUserProfile };
 
-export default connect(null, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);

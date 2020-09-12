@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { signIn } from 'store/user/actions';
-import { FormInput, Button } from '../../app/shared';
+import { FormInput, Button } from 'components/app/shared';
 import { signInWithGoogle } from 'config/firebase';
 
 const SignIn = ({ signIn }) => {
