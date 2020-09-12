@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { clearUser } from 'store/user/actions';
+import { toggleCart } from 'store/cart/actions';
+import { CartDropdown } from 'components/app/cart';
 
-const Header = ({ clearUser, userAuth, userProfile }) => {
+const Header = ({ clearUser, userAuth, userProfile, openCart, toggleCart }) => {
   const [openMenu, setOpenMenu] = useState(false);
   return (
     <div className='l-header'>
@@ -68,12 +70,17 @@ const Header = ({ clearUser, userAuth, userProfile }) => {
           </ul>
         </div>
 
-        <div>
-          <i className='fas fa-shopping-cart nav__cart'></i>
+        <div className='nav__cart'>
+          <i
+            className='fas fa-shopping-cart nav__cart'
+            onClick={() => toggleCart()}
+          ></i>
+          <small>2</small>
           <i
             className='fas fa-bars nav__toggle'
             onClick={() => setOpenMenu(!openMenu)}
           ></i>
+          {openCart && <CartDropdown />}
         </div>
       </nav>
     </div>
@@ -83,10 +90,12 @@ const Header = ({ clearUser, userAuth, userProfile }) => {
 const mapStateToProps = (state) => ({
   userAuth: state.auth.userAuth,
   userProfile: state.auth.userProfile,
+  openCart: state.cart.openCart,
 });
 
 const mapDispatchToProps = {
   clearUser,
+  toggleCart,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);

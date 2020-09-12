@@ -1,0 +1,39 @@
+.cartDropdown {
+  position: absolute;
+  width: 240px;
+  height: 340px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
+  background-color: $white-color;
+  top: 40px;
+  right: 0;
+  z-index: 98;
+  animation-name: fadeInOpacity;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in;
+  animation-duration: 0.2s;
+
+  button {
+    margin-top: auto;
+    width: 100%;
+  }
+}
+
+.cartDropdown__items {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+}
+
+@keyframes fadeInOpacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
