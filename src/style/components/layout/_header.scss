@@ -58,6 +58,7 @@
   color: $dark-color;
   font-weight: $font-semi;
   text-transform: capitalize;
+  transition: 200ms color ease-in;
 }
 
 .nav__link:hover {
