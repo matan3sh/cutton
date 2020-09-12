@@ -1,5 +1,6 @@
 const initialState = {
-  openCart: false,
+  cartOpen: false,
+  cartItems: [],
 };
 
 export default function reducer(state = initialState, action) {
@@ -7,7 +8,12 @@ export default function reducer(state = initialState, action) {
     case 'TOGGLE_CART':
       return {
         ...state,
-        openCart: !state.openCart,
+        cartOpen: !state.cartOpen,
+      };
+    case 'ADD_ITEM':
+      return {
+        ...state,
+        cartItems: [action.payload, ...state.cartItems],
       };
     default:
       return state;

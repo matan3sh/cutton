@@ -3,9 +3,17 @@ import { Link, NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { clearUser } from 'store/user/actions';
 import { toggleCart } from 'store/cart/actions';
+
 import { CartDropdown } from 'components/app/cart';
 
-const Header = ({ clearUser, userAuth, userProfile, openCart, toggleCart }) => {
+const Header = ({
+  clearUser,
+  userAuth,
+  userProfile,
+  cartOpen,
+  toggleCart,
+  cartItems,
+}) => {
   const [openMenu, setOpenMenu] = useState(false);
   return (
     <div className='l-header'>
@@ -75,12 +83,12 @@ const Header = ({ clearUser, userAuth, userProfile, openCart, toggleCart }) => {
             className='fas fa-shopping-cart nav__cart'
             onClick={() => toggleCart()}
           ></i>
-          <small>2</small>
+          <small>{!cartItems.length ? '' : cartItems.length}</small>
           <i
             className='fas fa-bars nav__toggle'
             onClick={() => setOpenMenu(!openMenu)}
           ></i>
-          {openCart && <CartDropdown />}
+          {cartOpen && <CartDropdown />}
         </div>
       </nav>
     </div>
@@ -90,7 +98,8 @@ const Header = ({ clearUser, userAuth, userProfile, openCart, toggleCart }) => {
 const mapStateToProps = (state) => ({
   userAuth: state.auth.userAuth,
   userProfile: state.auth.userProfile,
-  openCart: state.cart.openCart,
+  cartOpen: state.cart.cartOpen,
+  cartItems: state.cart.cartItems,
 });
 
 const mapDispatchToProps = {

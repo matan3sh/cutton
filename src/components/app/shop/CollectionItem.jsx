@@ -1,7 +1,9 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { addItem } from 'store/cart/actions';
 import StarRatingComponent from 'react-star-rating-component';
 
-const CollectionItem = ({ item }) => {
+const CollectionItem = ({ item, addItem }) => {
   return (
     <div className='collectionItem'>
       <div>
@@ -15,9 +17,13 @@ const CollectionItem = ({ item }) => {
         />
         <p>${item.price}</p>
       </div>
-      <button>Add To Cart</button>
+      <button onClick={() => addItem(item)}>Add To Cart</button>
     </div>
   );
 };
 
-export default CollectionItem;
+const mapDispatchToProps = {
+  addItem,
+};
+
+export default connect(null, mapDispatchToProps)(CollectionItem);
