@@ -1,9 +1,17 @@
 import React, { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
+
 import { connect } from 'react-redux';
 import { clearUser } from 'store/user/actions';
 import { toggleCart } from 'store/cart/actions';
-import { selectCartItemsCount } from 'store/cart/selectors';
+
+import { createStructuredSelector } from 'reselect';
+import {
+  selectCartItemsCount,
+  selectCartItems,
+  selectCartHidden,
+} from 'store/cart/selectors';
+import { selectCurrentUser, selectUserAuth } from 'store/user/selectors';
 
 import { CartDropdown } from 'components/app/cart';
 
@@ -97,12 +105,12 @@ const Header = ({
   );
 };
 
-const mapStateToProps = (state) => ({
-  userAuth: state.auth.userAuth,
-  userProfile: state.auth.userProfile,
-  cartOpen: state.cart.cartOpen,
-  cartItems: state.cart.cartItems,
-  itemCount: selectCartItemsCount(state),
+const mapStateToProps = createStructuredSelector({
+  userAuth: selectUserAuth,
+  userProfile: selectCurrentUser,
+  cartOpen: selectCartHidden,
+  cartItems: selectCartItems,
+  itemCount: selectCartItemsCount,
 });
 
 const mapDispatchToProps = {

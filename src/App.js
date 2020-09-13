@@ -10,8 +10,11 @@ import { auth, createUserProfileDocument } from 'config/firebase';
 import { connect } from 'react-redux';
 import { setUser, clearUser, setUserProfile } from 'store/user/actions';
 
+import { selectUserAuth } from 'store/user/selectors';
+import { createStructuredSelector } from 'reselect';
+
 import { Header, Footer } from 'components/layout';
-import { Main, Shop, Auth } from 'components/pages';
+import { Main, Shop, Auth, Checkout } from 'components/pages';
 import { ScrollToTop } from 'components/app/shared';
 
 const App = ({ setUser, clearUser, setUserProfile, userAuth }) => {
@@ -37,6 +40,7 @@ const App = ({ setUser, clearUser, setUserProfile, userAuth }) => {
       <Switch>
         <Route exact path='/' component={Main} />
         <Route exact path='/shop' component={Shop} />
+        <Route exact path='/checkout' component={Checkout} />
         <Route
           exact
           path='/auth'
@@ -48,8 +52,8 @@ const App = ({ setUser, clearUser, setUserProfile, userAuth }) => {
   );
 };
 
-const mapStateToProps = (state) => ({
-  userAuth: state.auth.userAuth,
+const mapStateToProps = createStructuredSelector({
+  userAuth: selectUserAuth,
 });
 
 const mapDispatchToProps = { setUser, clearUser, setUserProfile };

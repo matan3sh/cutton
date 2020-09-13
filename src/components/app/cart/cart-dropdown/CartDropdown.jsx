@@ -1,9 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 import { connect } from 'react-redux';
 import { toggleCart } from 'store/cart/actions';
+
+import { createStructuredSelector } from 'reselect';
 import { selectCartItems } from 'store/cart/selectors';
 
-import { Button } from 'components/app/shared';
 import CartDropDownList from './CartDropDownList';
 
 const CartDropdown = ({ toggleCart, cartItems }) => {
@@ -17,13 +20,15 @@ const CartDropdown = ({ toggleCart, cartItems }) => {
           <CartDropDownList cartItems={cartItems} />
         )}
       </div>
-      <Button title='Check Out' type='button' />
+      <Link exact to='/checkout'>
+        Check Out
+      </Link>
     </div>
   );
 };
 
-const mapStateToProps = (state) => ({
-  cartItems: selectCartItems(state),
+const mapStateToProps = createStructuredSelector({
+  cartItems: selectCartItems,
 });
 
 const mapDispatchToProps = {
