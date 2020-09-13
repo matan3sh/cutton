@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { toggleCart } from 'store/cart/actions';
+import { selectCartItems } from 'store/cart/selectors';
 
 import { Button } from 'components/app/shared';
 import CartDropDownList from './CartDropDownList';
@@ -22,7 +23,7 @@ const CartDropdown = ({ toggleCart, cartItems }) => {
 };
 
 const mapStateToProps = (state) => ({
-  cartItems: state.cart.cartItems,
+  cartItems: selectCartItems(state),
 });
 
 const mapDispatchToProps = {

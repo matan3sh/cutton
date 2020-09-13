@@ -3,6 +3,8 @@ import { Link, NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { clearUser } from 'store/user/actions';
 import { toggleCart } from 'store/cart/actions';
+import { selectCartItemsCount } from 'store/cart/selectors';
+
 import { CartDropdown } from 'components/app/cart';
 
 const Header = ({
@@ -12,12 +14,9 @@ const Header = ({
   cartOpen,
   toggleCart,
   cartItems,
+  itemCount,
 }) => {
   const [openMenu, setOpenMenu] = useState(false);
-  const itemCount = cartItems.reduce(
-    (accumalatedQuantity, cartItem) => accumalatedQuantity + cartItem.quantity,
-    0
-  );
   return (
     <div className='l-header'>
       <nav className='nav bd-grid'>
@@ -103,6 +102,7 @@ const mapStateToProps = (state) => ({
   userProfile: state.auth.userProfile,
   cartOpen: state.cart.cartOpen,
   cartItems: state.cart.cartItems,
+  itemCount: selectCartItemsCount(state),
 });
 
 const mapDispatchToProps = {
