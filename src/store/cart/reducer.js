@@ -1,3 +1,5 @@
+import { addItemToCart } from 'services/cartUtils';
+
 const initialState = {
   cartOpen: false,
   cartItems: [],
@@ -13,7 +15,7 @@ export default function reducer(state = initialState, action) {
     case 'ADD_ITEM':
       return {
         ...state,
-        cartItems: [action.payload, ...state.cartItems],
+        cartItems: addItemToCart(state.cartItems, action.payload),
       };
     default:
       return state;

@@ -1,20 +1,26 @@
 .collectionList__preview {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  place-items: center;
+  display: flex;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  margin: auto;
+  align-items: center;
+  max-width: 1200px;
+}
+
+.collectionList__preview::-webkit-scrollbar {
+  display: none;
 }
 
 .collectionList__title {
   text-transform: uppercase;
-  margin-bottom: 0.5rem;
-  margin-left: 3rem;
   font-size: 22px;
+  text-align: center;
+  margin-bottom: 1rem;
 }
 
 .collectionItem {
-  display: flex;
-  flex-direction: column;
   transition: 0.3s;
+  margin: 0 0.5rem;
 }
 
 .collectionItem:hover {
@@ -39,6 +45,8 @@
 }
 
 .collectionItem img {
+  min-width: 280px;
+  min-height: 300px;
   width: 280px;
   height: 300px;
   object-fit: cover;
@@ -62,24 +70,11 @@
   }
 }
 
-@media screen and (max-width: 1215px) {
-  .collectionList__preview {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media screen and (max-width: 950px) {
-  .collectionList__preview {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media screen and (max-width: 600px) {
-  .collectionList__preview {
-    grid-template-columns: 1fr;
-  }
-  .collectionList__title {
-    text-align: center;
-    margin-left: 0rem;
+@media screen and (max-width: 768px) {
+  .collectionItem img {
+    min-width: 180px;
+    min-height: 200px;
+    width: 180px;
+    height: 200px;
   }
 }
