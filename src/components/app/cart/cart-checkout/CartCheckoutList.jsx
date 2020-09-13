@@ -4,11 +4,11 @@ import CartCheckoutItem from './CartCheckoutItem';
 
 const CartCheckoutList = ({ cartItems }) => {
   return (
-    <div>
+    <tbody>
       {cartItems.map((item) => (
         <CartCheckoutItem key={item.id} item={item} />
       ))}
-    </div>
+    </tbody>
   );
 };
 
