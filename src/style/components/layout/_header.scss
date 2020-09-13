@@ -20,6 +20,22 @@
   align-items: center;
 }
 
+.nav__cart {
+  position: relative;
+
+  i {
+    cursor: pointer;
+  }
+
+  small {
+    position: relative !important;
+    color: $white-color;
+    right: 35px;
+    bottom: 8px;
+    font-weight: 900;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .nav__menu {
     position: fixed;
@@ -30,6 +46,7 @@
     padding: 2rem;
     background-color: $white-color;
     transition: 0.5s;
+    z-index: $z-fixed;
   }
 }
 
@@ -41,6 +58,7 @@
   color: $dark-color;
   font-weight: $font-semi;
   text-transform: capitalize;
+  transition: 200ms color ease-in;
 }
 
 .nav__link:hover {
@@ -62,7 +80,7 @@
 }
 
 .show {
-  right: -100px;
+  right: 0px;
 }
 
 .active {

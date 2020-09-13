@@ -2,8 +2,20 @@ import React, { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { clearUser } from 'store/user/actions';
+import { toggleCart } from 'store/cart/actions';
+import { selectCartItemsCount } from 'store/cart/selectors';
 
-const Header = ({ clearUser, userAuth, userProfile }) => {
+import { CartDropdown } from 'components/app/cart';
+
+const Header = ({
+  clearUser,
+  userAuth,
+  userProfile,
+  cartOpen,
+  toggleCart,
+  cartItems,
+  itemCount,
+}) => {
   const [openMenu, setOpenMenu] = useState(false);
   return (
     <div className='l-header'>
@@ -68,12 +80,17 @@ const Header = ({ clearUser, userAuth, userProfile }) => {
           </ul>
         </div>
 
-        <div>
-          <i className='fas fa-shopping-cart nav__cart'></i>
+        <div className='nav__cart'>
+          <i
+            className='fas fa-shopping-cart nav__cart'
+            onClick={() => toggleCart()}
+          ></i>
+          <small>{!cartItems.length ? '' : itemCount}</small>
           <i
             className='fas fa-bars nav__toggle'
             onClick={() => setOpenMenu(!openMenu)}
           ></i>
+          {cartOpen && <CartDropdown />}
         </div>
       </nav>
     </div>
@@ -83,10 +100,14 @@ const Header = ({ clearUser, userAuth, userProfile }) => {
 const mapStateToProps = (state) => ({
   userAuth: state.auth.userAuth,
   userProfile: state.auth.userProfile,
+  cartOpen: state.cart.cartOpen,
+  cartItems: state.cart.cartItems,
+  itemCount: selectCartItemsCount(state),
 });
 
 const mapDispatchToProps = {
   clearUser,
+  toggleCart,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);
