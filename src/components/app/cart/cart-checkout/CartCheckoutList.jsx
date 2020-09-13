@@ -1,4 +1,5 @@
 import React from 'react';
+
 import CartCheckoutItem from './CartCheckoutItem';
 
 const CartCheckoutList = ({ cartItems }) => {

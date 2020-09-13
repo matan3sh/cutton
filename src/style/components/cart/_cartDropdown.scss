@@ -31,6 +31,10 @@
     border: none;
     font-size: 14px;
     text-transform: uppercase;
+
+    &:hover {
+      opacity: 0.8;
+    }
   }
 
   span {
@@ -114,5 +118,18 @@
     font-size: 11px;
     font-weight: bolder;
     margin: 5px 0;
+  }
+}
+
+.cartDropdown__header {
+  display: flex;
+  justify-content: space-between;
+
+  .cartDropdown__header-total {
+    font-size: 16px;
+
+    span {
+      color: $first-color;
+    }
   }
 }

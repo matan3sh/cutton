@@ -5,14 +5,19 @@ import { connect } from 'react-redux';
 import { toggleCart } from 'store/cart/actions';
 
 import { createStructuredSelector } from 'reselect';
-import { selectCartItems } from 'store/cart/selectors';
+import { selectCartItems, selectCartTotal } from 'store/cart/selectors';
 
 import CartDropDownList from './CartDropDownList';
 
-const CartDropdown = ({ toggleCart, cartItems }) => {
+const CartDropdown = ({ toggleCart, cartItems, total }) => {
   return (
     <div className='cartDropdown'>
-      <span onClick={() => toggleCart()}>X</span>
+      <div className='cartDropdown__header'>
+        <span onClick={() => toggleCart()}>X</span>
+        <span className='cartDropdown__header-total'>
+          <span>TOTAL:</span> ${total}
+        </span>
+      </div>
       <div className='cartDropdown__items'>
         {!cartItems?.length ? (
           <p>Your cart is empty</p>
@@ -29,6 +34,7 @@ const CartDropdown = ({ toggleCart, cartItems }) => {
 
 const mapStateToProps = createStructuredSelector({
   cartItems: selectCartItems,
+  total: selectCartTotal,
 });
 
 const mapDispatchToProps = {

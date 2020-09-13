@@ -15,26 +15,6 @@ const Checkout = ({ cartItems, total, toggleCart }) => {
 
   return (
     <div className='checkout'>
-      <div className='checkout__header'>
-        <div className='header__block'>
-          <span></span>
-        </div>
-        <div className='header__block'>
-          <span>Product</span>
-        </div>
-        <div className='header__block'>
-          <span>Description</span>
-        </div>
-        <div className='header__block'>
-          <span>Quantity</span>
-        </div>
-        <div className='header__block'>
-          <span>Price</span>
-        </div>
-        <div className='header__block'>
-          <span>Action</span>
-        </div>
-      </div>
       {!cartItems?.length ? (
         <p>Your cart is empty</p>
       ) : (
