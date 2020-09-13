@@ -1,4 +1,4 @@
-import { addItemToCart } from 'services/cartUtils';
+import { addItemToCart, removeItemFromCart } from 'services/cartUtils';
 
 const initialState = {
   cartOpen: false,
@@ -12,10 +12,20 @@ export default function reducer(state = initialState, action) {
         ...state,
         cartOpen: !state.cartOpen,
       };
+    case 'OPEN_CART':
+      return {
+        ...state,
+        cartOpen: true,
+      };
     case 'ADD_ITEM':
       return {
         ...state,
         cartItems: addItemToCart(state.cartItems, action.payload),
+      };
+    case 'REMOVE_ITEM':
+      return {
+        ...state,
+        cartItems: removeItemFromCart(state.cartItems, action.payload),
       };
     default:
       return state;

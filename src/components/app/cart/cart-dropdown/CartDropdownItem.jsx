@@ -1,6 +1,8 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { removeItem } from 'store/cart/actions';
 
-const CartDropdownItem = ({ cartItem }) => {
+const CartDropdownItem = ({ cartItem, removeItem }) => {
   return (
     <div className='cartDropdownItem'>
       <img src={cartItem.imageUrl} alt='item' />
@@ -9,9 +11,14 @@ const CartDropdownItem = ({ cartItem }) => {
         <span className='cartDropdownItem__details-price'>
           {cartItem.quantity} x ${cartItem.price}
         </span>
+        <button onClick={() => removeItem(cartItem)}>Remove</button>
       </div>
     </div>
   );
 };
 
-export default CartDropdownItem;
+const mapDispatchToProps = {
+  removeItem,
+};
+
+export default connect(null, mapDispatchToProps)(CartDropdownItem);

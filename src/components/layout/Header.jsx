@@ -3,7 +3,6 @@ import { Link, NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { clearUser } from 'store/user/actions';
 import { toggleCart } from 'store/cart/actions';
-
 import { CartDropdown } from 'components/app/cart';
 
 const Header = ({
@@ -15,6 +14,10 @@ const Header = ({
   cartItems,
 }) => {
   const [openMenu, setOpenMenu] = useState(false);
+  const itemCount = cartItems.reduce(
+    (accumalatedQuantity, cartItem) => accumalatedQuantity + cartItem.quantity,
+    0
+  );
   return (
     <div className='l-header'>
       <nav className='nav bd-grid'>
@@ -83,7 +86,7 @@ const Header = ({
             className='fas fa-shopping-cart nav__cart'
             onClick={() => toggleCart()}
           ></i>
-          <small>{!cartItems.length ? '' : cartItems.length}</small>
+          <small>{!cartItems.length ? '' : itemCount}</small>
           <i
             className='fas fa-bars nav__toggle'
             onClick={() => setOpenMenu(!openMenu)}

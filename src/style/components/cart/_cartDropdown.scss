@@ -88,3 +88,21 @@
     font-size: 12px;
   }
 }
+
+.cartDropdownItem button {
+  width: 80px;
+  border: none;
+  font-size: 10px;
+  text-transform: uppercase;
+  position: relative;
+  bottom: 10px;
+  background-color: $gray-color;
+  color: $dark-color;
+  cursor: pointer;
+  transition: 200ms background-color ease-in;
+
+  &:hover {
+    background-color: #555;
+    color: $white-color;
+  }
+}

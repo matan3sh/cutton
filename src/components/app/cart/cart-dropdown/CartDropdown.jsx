@@ -10,7 +10,7 @@ const CartDropdown = ({ toggleCart, cartItems }) => {
     <div className='cartDropdown'>
       <span onClick={() => toggleCart()}>X</span>
       <div className='cartDropdown__items'>
-        {!cartItems.length ? (
+        {!cartItems?.length ? (
           <p>Your cart is empty</p>
         ) : (
           <CartDropDownList cartItems={cartItems} />
