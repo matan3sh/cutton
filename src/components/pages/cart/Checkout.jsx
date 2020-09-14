@@ -18,21 +18,23 @@ const Checkout = ({ cartItems, total, toggleCart }) => {
       {!cartItems?.length ? (
         <p>Your cart is empty</p>
       ) : (
-        <table class='content-table'>
-          <thead>
-            <tr>
-              <th>Product</th>
-              <th>Description</th>
-              <th>Quantity</th>
-              <th>Price</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <CartCheckoutList cartItems={cartItems} />
+        <>
+          <table className='content-table'>
+            <thead>
+              <tr>
+                <th>Product</th>
+                <th>Description</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <CartCheckoutList cartItems={cartItems} />
+          </table>
           <div className='checkout__total'>
             <span>TOTAL: ${total}</span>
           </div>
-        </table>
+        </>
       )}
     </div>
   );

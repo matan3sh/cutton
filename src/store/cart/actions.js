@@ -29,3 +29,11 @@ export const removeItem = (item) => async (dispatch) => {
     console.error(error);
   }
 };
+
+export const removeCompleteItem = (item) => async (dispatch) => {
+  try {
+    dispatch({ type: 'REMOVE_COMPLETE_ITEM', payload: item });
+  } catch (error) {
+    console.error(error);
+  }
+};

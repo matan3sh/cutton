@@ -6,24 +6,21 @@
   margin: 5rem auto;
   max-width: 1200px;
 
-  .checkout__total {
-    margin-top: 30px;
-    font-size: 26px;
-  }
-
   .image-container {
     width: 120px;
   }
 
-  p {
-    margin: 5rem 0;
-    font-size: 16px;
+  .action-button {
+    cursor: pointer;
   }
 
-  .checkout__total {
-    span {
-      font-size: 24px;
-    }
+  .quantity__number {
+    color: $first-color;
+    font-family: Poppins-Bold;
+  }
+
+  .quantity__sign {
+    cursor: pointer;
   }
 }
 
@@ -53,7 +50,7 @@
 }
 
 .content-table tbody tr:nth-of-type(even) {
-  background-color: #f3f3f3;
+  // background-color: #f3f3f3;
 }
 
 .content-table tbody tr:last-of-type {
@@ -63,4 +60,52 @@
 .content-table tbody tr.active-row {
   font-weight: bold;
   color: #009879;
+}
+
+.checkout__total {
+  span {
+    font-size: 24px;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .content-table {
+    max-width: 200px !important;
+  }
+
+  .content-table th,
+  .content-table td {
+    padding: 6px 7.5px;
+  }
+
+  .image-container img {
+    width: 90px;
+  }
+}
+
+@media screen and (max-width: 438px) {
+  .image-container img {
+    width: 70px;
+  }
+
+  .content-table th,
+  .content-table td {
+    font-size: 12px;
+    padding: 3px;
+  }
+}
+
+@media screen and (max-width: 438px) {
+  .content-table {
+    min-width: 370px !important;
+  }
+  .image-container img {
+    width: 75px;
+  }
+
+  .content-table th,
+  .content-table td {
+    font-size: 10px;
+    padding: 3px;
+  }
 }

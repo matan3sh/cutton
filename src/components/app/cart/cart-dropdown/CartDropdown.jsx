@@ -25,9 +25,7 @@ const CartDropdown = ({ toggleCart, cartItems, total }) => {
           <CartDropDownList cartItems={cartItems} />
         )}
       </div>
-      <Link exact to='/checkout'>
-        Check Out
-      </Link>
+      <Link to='/checkout'>Check Out</Link>
     </div>
   );
 };
