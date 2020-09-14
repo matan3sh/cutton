@@ -22,7 +22,8 @@
 @import 'components/layout/header';
 
 // Shop
-@import 'components/shop/collection';
+@import 'components/shop/collections';
+@import 'components/shop/collection/collection';
 
 // Auth
 @import 'components/auth/auth';

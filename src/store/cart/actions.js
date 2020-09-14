@@ -14,6 +14,14 @@ export const openCart = () => async (dispatch) => {
   }
 };
 
+export const closeCart = () => async (dispatch) => {
+  try {
+    dispatch({ type: 'CLOSE_CART' });
+  } catch (error) {
+    console.error(error);
+  }
+};
+
 export const addItem = (item) => async (dispatch) => {
   try {
     dispatch({ type: 'ADD_ITEM', payload: item });

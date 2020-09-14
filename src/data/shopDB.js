@@ -1,5 +1,5 @@
-const gDefaultShopData = [
-  {
+const gDefaultShopData = {
+  hats: {
     id: 1,
     title: 'Hats',
     routeName: 'hats',
@@ -69,7 +69,7 @@ const gDefaultShopData = [
       },
     ],
   },
-  {
+  sneakers: {
     id: 2,
     title: 'Sneakers',
     routeName: 'sneakers',
@@ -132,7 +132,7 @@ const gDefaultShopData = [
       },
     ],
   },
-  {
+  jackets: {
     id: 3,
     title: 'Jackets',
     routeName: 'jackets',
@@ -174,7 +174,7 @@ const gDefaultShopData = [
       },
     ],
   },
-  {
+  womens: {
     id: 4,
     title: 'Womens',
     routeName: 'womens',
@@ -230,7 +230,7 @@ const gDefaultShopData = [
       },
     ],
   },
-  {
+  mens: {
     id: 5,
     title: 'Mens',
     routeName: 'mens',
@@ -279,7 +279,7 @@ const gDefaultShopData = [
       },
     ],
   },
-];
+};
 
 function getDefaultData() {
   return gDefaultShopData;

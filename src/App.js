@@ -43,7 +43,7 @@ const App = ({ setUser, clearUser, setUserProfile, userAuth, userProfile }) => {
           <Header />
           <Switch>
             <Route exact path='/' component={Main} />
-            <Route exact path='/shop' component={Shop} />
+            <Route path='/shop' component={Shop} />
             <Route exact path='/checkout' component={Checkout} />
             <Route
               exact

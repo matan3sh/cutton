@@ -1,20 +1,16 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { createStructuredSelector } from 'reselect';
-import { selectShopCollections } from 'store/shop/selectors';
+import { Route } from 'react-router-dom';
 
 import CollectionList from 'components/app/shop/CollectionList';
+import Collection from './collection/Collection';
 
-const Shop = ({ collections }) => {
+const Shop = ({ match }) => {
   return (
     <div className='wrapper'>
-      <CollectionList collections={collections} />
+      <Route exact path={`${match.path}`} component={CollectionList} />
+      <Route path={`${match.path}/:collectionId`} component={Collection} />
     </div>
   );
 };
 
-const mapStateToProps = createStructuredSelector({
-  collections: selectShopCollections,
-});
-
-export default connect(mapStateToProps, null)(Shop);
+export default Shop;

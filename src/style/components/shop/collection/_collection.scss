@@ -1,0 +1,28 @@
+.collection {
+  display: flex;
+  flex-direction: column;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  margin: auto;
+  align-items: center;
+  max-width: 1500px;
+
+  .collection__title {
+    font-size: 22px;
+    margin: 0 auto 30px;
+  }
+
+  .collection__items {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+
+    & .collectionItem {
+      margin-bottom: 10px;
+    }
+  }
+}
+
+.collection::-webkit-scrollbar {
+  display: none;
+}

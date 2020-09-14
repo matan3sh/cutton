@@ -1,15 +1,15 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { toggleCart } from 'store/cart/actions';
+import { closeCart } from 'store/cart/actions';
 
 import { createStructuredSelector } from 'reselect';
 import { selectCartItems, selectCartTotal } from 'store/cart/selectors';
 
 import { CartCheckoutList } from 'components/app/cart';
 
-const Checkout = ({ cartItems, total, toggleCart }) => {
+const Checkout = ({ cartItems, total, closeCart }) => {
   useEffect(() => {
-    toggleCart();
+    closeCart();
     // eslint-disable-next-line
   }, []);
 
@@ -46,7 +46,7 @@ const mapStateToProps = createStructuredSelector({
 });
 
 const mapDispatchToProps = {
-  toggleCart,
+  closeCart,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Checkout);

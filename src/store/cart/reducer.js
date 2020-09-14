@@ -17,6 +17,11 @@ export default function reducer(state = initialState, action) {
         ...state,
         cartOpen: true,
       };
+    case 'CLOSE_CART':
+      return {
+        ...state,
+        cartOpen: false,
+      };
     case 'ADD_ITEM':
       return {
         ...state,

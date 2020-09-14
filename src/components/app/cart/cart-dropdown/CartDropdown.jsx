@@ -2,18 +2,18 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import { connect } from 'react-redux';
-import { toggleCart } from 'store/cart/actions';
+import { closeCart } from 'store/cart/actions';
 
 import { createStructuredSelector } from 'reselect';
 import { selectCartItems, selectCartTotal } from 'store/cart/selectors';
 
 import CartDropDownList from './CartDropDownList';
 
-const CartDropdown = ({ toggleCart, cartItems, total }) => {
+const CartDropdown = ({ closeCart, cartItems, total }) => {
   return (
     <div className='cartDropdown'>
       <div className='cartDropdown__header'>
-        <span onClick={() => toggleCart()}>X</span>
+        <span onClick={() => closeCart()}>X</span>
         <span className='cartDropdown__header-total'>
           <span>TOTAL:</span> ${total}
         </span>
@@ -36,7 +36,7 @@ const mapStateToProps = createStructuredSelector({
 });
 
 const mapDispatchToProps = {
-  toggleCart,
+  closeCart,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(CartDropdown);
