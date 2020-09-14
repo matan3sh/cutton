@@ -13,8 +13,8 @@ export default function reducer(state = initialState, action) {
     case 'CLEAR_USER':
       return {
         ...state,
-        userAuth: null,
-        userProfile: null,
+        userAuth: false,
+        userProfile: false,
       };
     case 'SET_USER_PROFILE':
       return {

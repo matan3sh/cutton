@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
+import { selectShopCollections } from 'store/shop/selectors';
+
 import CollectionList from 'components/app/shop/CollectionList';
 
-import db from 'data/shopDB';
-
-const Shop = () => {
-  // eslint-disable-next-line
-  const [collections, setCollections] = useState(db.getDefaultData());
+const Shop = ({ collections }) => {
   return (
     <div className='wrapper'>
       <CollectionList collections={collections} />
@@ -13,4 +13,8 @@ const Shop = () => {
   );
 };
 
-export default Shop;
+const mapStateToProps = createStructuredSelector({
+  collections: selectShopCollections,
+});
+
+export default connect(mapStateToProps, null)(Shop);

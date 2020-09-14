@@ -36,7 +36,7 @@ const App = ({ setUser, clearUser, setUserProfile, userAuth, userProfile }) => {
   return (
     <Router>
       <ScrollToTop />
-      {!userAuth || !userProfile ? (
+      {userAuth === null || userProfile === null ? (
         <Loader />
       ) : (
         <>
