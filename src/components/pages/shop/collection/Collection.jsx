@@ -1,25 +1,16 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { selectCollection } from 'store/shop/selectors';
+import { Route } from 'react-router-dom';
 
-import CollectionItem from 'components/app/shop/CollectionItem';
+import CollectionList from './CollectionList';
+import CollectionItem from './CollectionItem';
 
-const Collection = ({ collection }) => {
-  const { title, items } = collection;
+const Collection = ({ match }) => {
   return (
-    <div className='collection'>
-      <h2 className='collection__title'>{title}</h2>
-      <div className='collection__items'>
-        {items.map((item) => (
-          <CollectionItem key={item.id} item={item} />
-        ))}
-      </div>
+    <div>
+      <Route exact path={`${match.path}`} component={CollectionList} />
+      <Route path={`${match.path}/:itemId`} component={CollectionItem} />
     </div>
   );
 };
 
-const mapStateToProps = (state, ownProps) => ({
-  collection: selectCollection(ownProps.match.params.collectionId)(state),
-});
-
-export default connect(mapStateToProps)(Collection);
+export default Collection;

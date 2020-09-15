@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { createStructuredSelector } from 'reselect';
 import { selectCollectionsForPreview } from 'store/shop/selectors';
 
-import CollectionItem from '../shop/CollectionItem';
+import CollectionItem from './CollectionItem';
 
 const CollectionList = ({ collections }) => {
   return (
@@ -16,11 +16,13 @@ const CollectionList = ({ collections }) => {
             <h1 className='collectionList__title'>{collection.title}</h1>
           </Link>
           <div className='collectionList__preview'>
-            {collection.items
-              .filter((item, idx) => idx < 4)
-              .map((item) => (
-                <CollectionItem key={item.id} item={item} />
-              ))}
+            {Object.keys(collection.items).map((key) => (
+              <CollectionItem
+                key={collection.items[key].id}
+                item={collection.items[key]}
+                collectionTitle={collection.title.toLowerCase()}
+              />
+            ))}
           </div>
         </div>
       ))}

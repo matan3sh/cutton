@@ -1,12 +1,13 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { addItem, openCart } from 'store/cart/actions';
 import StarRatingComponent from 'react-star-rating-component';
 
-const CollectionItem = ({ item, addItem, openCart }) => {
+const CollectionItem = ({ collectionTitle, item, addItem, openCart }) => {
   return (
     <div className='collectionItem'>
-      <div>
+      <Link to={`/shop/${collectionTitle}/${item.id}`}>
         <img src={item.imageUrl} alt='product-thumb' />
         <h3>{item.name}</h3>
         <StarRatingComponent
@@ -16,7 +17,7 @@ const CollectionItem = ({ item, addItem, openCart }) => {
           className='rating'
         />
         <p>${item.price}</p>
-      </div>
+      </Link>
       <button
         onClick={() => {
           addItem(item);

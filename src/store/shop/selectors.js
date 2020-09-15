@@ -17,3 +17,13 @@ export const selectCollection = (collectionUrlParam) =>
     [selectShopCollections],
     (collections) => collections[collectionUrlParam]
   );
+
+export const selectCollectionItem = (
+  collectionItemUrlParam,
+  collectionUrlParam
+) =>
+  createSelector(
+    [selectShopCollections],
+    (collections) =>
+      collections[collectionUrlParam].items[collectionItemUrlParam]
+  );
