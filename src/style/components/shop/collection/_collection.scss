@@ -63,7 +63,7 @@
   display: grid;
   grid-template-columns: 0.5fr 1fr;
   grid-gap: 1rem;
-  margin: 2rem auto;
+  margin: 0.5rem auto;
   width: 900px;
 
   .collectionItem-details-left {
@@ -125,13 +125,14 @@
   }
 }
 
-@media screen and (max-width: 917px) {
-  .collectionItem-details {
-    width: 800px;
-  }
+.collectionItem__navigation {
+  margin: 0rem auto;
+  width: 860px;
+  margin-right: auto;
+  font-size: 13px;
 
-  .collectionItem-details-right__desc {
-    width: 355px !important;
+  span {
+    text-transform: capitalize;
   }
 }
 
@@ -144,6 +145,10 @@
     width: 355px !important;
     font-size: 14px;
   }
+
+  .collectionItem__navigation {
+    width: 600px;
+  }
 }
 
 @media screen and (max-width: 677px) {
@@ -153,5 +158,9 @@
   }
   .collectionItem-details-right__desc {
     width: 305px !important;
+  }
+
+  .collectionItem__navigation {
+    width: 250px;
   }
 }
