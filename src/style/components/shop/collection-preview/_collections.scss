@@ -84,3 +84,12 @@
     font-size: 14px;
   }
 }
+
+@media screen and (max-width: 420px) {
+  .collectionItem img {
+    min-width: 120px;
+    min-height: 160px;
+    width: 120px;
+    height: 160px;
+  }
+}
