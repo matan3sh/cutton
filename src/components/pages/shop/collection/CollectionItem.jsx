@@ -1,9 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { addItem, openCart } from 'store/cart/actions';
 import { selectCollectionItem } from 'store/shop/selectors';
 import { Button } from 'components/app/shared';
 
-const CollectionItem = ({ item, match }) => {
+const CollectionItem = ({ item, match, addItem, openCart }) => {
   console.log(match);
   return (
     <div className='collectionItem-details'>
@@ -34,7 +35,14 @@ const CollectionItem = ({ item, match }) => {
             iusto aliquid itaque saepe dolore?
           </p>
         </div>
-        <Button type='button' title='Add to Cart' />
+        <Button
+          type='button'
+          title='Add to Cart'
+          onClick={() => {
+            addItem(item);
+            openCart();
+          }}
+        />
       </div>
     </div>
   );
@@ -47,4 +55,9 @@ const mapStateToProps = (state, ownProps) => ({
   )(state),
 });
 
-export default connect(mapStateToProps)(CollectionItem);
+const mapDispatchToProps = {
+  addItem,
+  openCart,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(CollectionItem);

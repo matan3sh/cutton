@@ -6,7 +6,7 @@ import new3 from '../../../../assets/img/new3.png';
 import new4 from '../../../../assets/img/new4.png';
 import new5 from '../../../../assets/img/new5.png';
 import new6 from '../../../../assets/img/new6.png';
-import NewList from '../../../app/main-app/new/NewList';
+import NewList from '../new/NewList';
 
 const products = [
   { image: new1 },

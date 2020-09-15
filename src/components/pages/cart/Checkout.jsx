@@ -5,7 +5,8 @@ import { closeCart } from 'store/cart/actions';
 import { createStructuredSelector } from 'reselect';
 import { selectCartItems, selectCartTotal } from 'store/cart/selectors';
 
-import { CartCheckoutList } from 'components/app/cart';
+import CartCheckoutList from './cart-checkout/CartCheckoutList';
+import StripeButton from 'components/app/shared/StripeButton';
 
 const Checkout = ({ cartItems, total, closeCart }) => {
   useEffect(() => {
@@ -32,7 +33,12 @@ const Checkout = ({ cartItems, total, closeCart }) => {
             <CartCheckoutList cartItems={cartItems} />
           </table>
           <div className='checkout__total'>
+            <StripeButton price={total} />
             <span>TOTAL: ${total}</span>
+          </div>
+          <div className='test__payment'>
+            <p>For testing payment use:</p>
+            <small>4242 4242 4242 4242 - Exp:01/21 - CW:123</small>
           </div>
         </>
       )}

@@ -4,6 +4,7 @@
   flex-direction: column;
   align-items: center;
   margin: 5rem auto;
+  margin-bottom: 2rem;
   max-width: 1200px;
 
   .image-container {
@@ -63,8 +64,29 @@
 }
 
 .checkout__total {
+  display: flex;
+  justify-content: space-between;
+  width: 350px;
   span {
     font-size: 24px;
+  }
+}
+
+.test__payment {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 2rem;
+
+  p {
+    text-transform: uppercase;
+    font-size: 14px;
+    color: $first-color;
+  }
+
+  small {
+    font-family: Varela;
   }
 }
 

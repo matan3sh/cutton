@@ -1,6 +1,6 @@
 import React from 'react';
 
-import CollectionList from 'components/app/main-app/collection/CollectionList';
+import CollectionList from 'components/pages/main-app/collection/CollectionList';
 
 import backpackMan from 'assets/img/backpackMan.png';
 import backpackWoman from 'assets/img/backpackWoman.png';

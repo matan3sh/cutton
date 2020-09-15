@@ -1,6 +1,6 @@
 import React from 'react';
 
-import FeaturedList from '../../../app/main-app/featured/FeaturedList';
+import FeaturedList from '../featured/FeaturedList';
 
 import feature1 from '../../../../assets/img/feature1.png';
 import feature2 from '../../../../assets/img/feature2.png';
