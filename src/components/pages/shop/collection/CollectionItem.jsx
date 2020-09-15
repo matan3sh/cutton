@@ -2,10 +2,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { addItem, openCart } from 'store/cart/actions';
 import { selectCollectionItem } from 'store/shop/selectors';
+import StarRatingComponent from 'react-star-rating-component';
 import { Button } from 'components/app/shared';
 
 const CollectionItem = ({ item, match, addItem, openCart }) => {
-  console.log(match);
   return (
     <div className='collectionItem-details'>
       <div className='collectionItem-details-left'>
@@ -21,6 +21,12 @@ const CollectionItem = ({ item, match, addItem, openCart }) => {
       <div className='collectionItem-details-right'>
         <small>{match.params.collectionId.toUpperCase()}</small>
         <h2>{item.name}</h2>
+        <StarRatingComponent
+          name='rate1'
+          starCount={5}
+          value={item.rating}
+          className='rating'
+        />
         <div className='collectionItem-details-right__price'>
           <p>${item.price} USD</p>
         </div>
