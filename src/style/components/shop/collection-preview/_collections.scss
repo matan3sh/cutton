@@ -89,7 +89,15 @@
   .collectionItem img {
     min-width: 120px;
     min-height: 160px;
-    width: 120px;
+    width: 140px;
     height: 160px;
+  }
+  .collectionItem button {
+    width: 80px;
+    font-size: 9px;
+    bottom: 40px;
+  }
+  .collectionItem p {
+    bottom: 35px;
   }
 }

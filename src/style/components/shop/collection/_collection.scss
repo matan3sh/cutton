@@ -16,7 +16,7 @@
     grid-gap: 10px;
 
     & .collectionItem {
-      margin-bottom: 10px;
+      margin-bottom: 0px;
     }
   }
 }
@@ -55,7 +55,7 @@
 
 @media screen and (max-width: 420px) {
   .collection {
-    min-width: 355px;
+    min-width: 375px;
   }
 }
 
@@ -162,5 +162,15 @@
 
   .collectionItem__navigation {
     width: 250px;
+  }
+
+  .collectionItem-details-right {
+    position: relative;
+    bottom: 250px;
+  }
+
+  .collectionItem-details-left__images {
+    position: relative;
+    bottom: 120px;
   }
 }
