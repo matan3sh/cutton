@@ -86,6 +86,9 @@
 }
 
 @media screen and (max-width: 420px) {
+  .collectionItem h3 {
+    font-size: 12px;
+  }
   .collectionItem img {
     min-width: 120px;
     min-height: 160px;
