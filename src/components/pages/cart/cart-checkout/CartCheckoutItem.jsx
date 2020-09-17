@@ -1,6 +1,8 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { addItem, removeCompleteItem, removeItem } from 'store/cart/actions';
+import React from "react";
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
+
+import { addItem, removeCompleteItem, removeItem } from "store/cart/actions";
 
 const CartCheckoutItem = ({
   item,
@@ -11,29 +13,31 @@ const CartCheckoutItem = ({
   return (
     <tr>
       <td>
-        <div className='image-container'>
-          <img src={item.imageUrl} alt='item' />
+        <div className="image-container">
+          <img src={item.imageUrl} alt="item" />
         </div>
       </td>
       <td>
-        <span className='name'>{item.name}</span>
+        <Link to={`/shop/${item.collection}/${item.id}`}>
+          <span className="name">{item.name}</span>
+        </Link>
       </td>
       <td>
-        <span className='quantity'>
-          <span className='quantity__sign' onClick={() => removeItem(item)}>
+        <span className="quantity">
+          <span className="quantity__sign" onClick={() => removeItem(item)}>
             &#8595;
           </span>
-          <span className='quantity__number'>{item.quantity}</span>
-          <span className='quantity__sign' onClick={() => addItem(item)}>
+          <span className="quantity__number">{item.quantity}</span>
+          <span className="quantity__sign" onClick={() => addItem(item)}>
             &#8593;
           </span>
         </span>
       </td>
       <td>
-        <span className='price'>$ {item.price}</span>
+        <span className="price">$ {item.price}</span>
       </td>
       <td>
-        <div className='action-button' onClick={() => removeCompleteItem(item)}>
+        <div className="action-button" onClick={() => removeCompleteItem(item)}>
           &#10005;
         </div>
       </td>

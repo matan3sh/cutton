@@ -50,7 +50,7 @@ const CollectionItem = ({ item, match, addItem, openCart }) => {
             type="button"
             title="Add to Cart"
             onClick={() => {
-              addItem(item);
+              addItem({ ...item, collection: match.params.collectionId });
               openCart();
             }}
           />
