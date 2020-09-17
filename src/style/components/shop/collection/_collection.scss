@@ -84,6 +84,8 @@
       width: 85px;
       display: flex;
       margin-left: 5px;
+      position: relative;
+      top: 0px;
 
       img {
         margin: 0 5px;
@@ -95,6 +97,8 @@
   .collectionItem-details-right {
     flex: 0.2;
     justify-content: center;
+    position: relative;
+    top: 0px;
 
     h2 {
       font-size: 2rem;
@@ -172,5 +176,16 @@
   .collectionItem-details-left__images {
     position: relative;
     bottom: 120px;
+  }
+
+  .collectionItem-details-right__price {
+    margin: 15px 0 !important;
+  }
+
+  .collectionItem-details-right {
+    button {
+      display: flex;
+      justify-content: center;
+    }
   }
 }
