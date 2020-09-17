@@ -3,7 +3,7 @@
   place-items: center;
   overflow-y: hidden;
   overflow-x: scroll;
-  min-width: 1200px;
+  min-width: 1500px;
 
   .collection__title {
     font-size: 22px;
@@ -76,7 +76,6 @@
       img {
         min-width: 260px !important;
         max-width: 260px !important;
-        object-fit: contain;
       }
     }
 
@@ -98,7 +97,7 @@
     flex: 0.2;
     justify-content: center;
     position: relative;
-    top: 0px;
+    top: 0;
 
     h2 {
       font-size: 2rem;
@@ -165,7 +164,7 @@
   }
 
   .collectionItem__navigation {
-    width: 250px;
+    width: 290px;
   }
 
   .collectionItem-details-right {

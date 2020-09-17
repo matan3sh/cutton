@@ -1,35 +1,36 @@
 // Setup
-@import 'setup/variables';
-@import 'setup/typography';
+@import "setup/variables";
+@import "setup/typography";
 
 // Basics
-@import 'basic/base';
-@import 'basic/layout';
-@import 'basic/formInput';
-@import 'basic/button';
+@import "basic/base";
+@import "basic/layout";
+@import "basic/formInput";
+@import "basic/button";
 
 // Components
-@import 'components/sections/home';
-@import 'components/sections/collection';
-@import 'components/sections/featured';
-@import 'components/sections/offer';
-@import 'components/sections/new';
-@import 'components/sections/newsletter';
-@import 'components/sections/sponsers';
-@import 'components/sections/footer';
+@import "components/sections/home";
+@import "components/sections/collection";
+@import "components/sections/featured";
+@import "components/sections/offer";
+@import "components/sections/new";
+@import "components/sections/newsletter";
+@import "components/sections/sponsers";
+@import "components/sections/footer";
 
 // Layout
-@import 'components/layout/header';
+@import "components/layout/header";
 
 // Shop
-@import 'components/shop/collection-preview/collections';
-@import 'components/shop/collection/collection';
+@import "components/shop/collection-preview/collections";
+@import "components/shop/collection/collection";
+@import "components/shop/collection/gallery";
 
 // Auth
-@import 'components/auth/auth';
-@import 'components/auth/signin';
-@import 'components/auth/signup';
+@import "components/auth/auth";
+@import "components/auth/signin";
+@import "components/auth/signup";
 
 // Cart
-@import 'components/cart/cartDropdown';
-@import 'components/cart/checkout';
+@import "components/cart/cartDropdown";
+@import "components/cart/checkout";

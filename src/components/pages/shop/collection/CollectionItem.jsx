@@ -1,16 +1,17 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { addItem, openCart } from 'store/cart/actions';
-import { selectCollectionItem } from 'store/shop/selectors';
-import StarRatingComponent from 'react-star-rating-component';
-import { Button } from 'components/app/shared';
+import React from "react";
+import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { addItem, openCart } from "store/cart/actions";
+import { selectCollectionItem } from "store/shop/selectors";
+import StarRatingComponent from "react-star-rating-component";
+import { Button } from "components/app/shared";
+import Gallery from "components/app/shop/Gallery";
 
 const CollectionItem = ({ item, match, addItem, openCart }) => {
   return (
     <div>
-      <p className='collectionItem__navigation'>
-        <Link to='/shop'>
+      <p className="collectionItem__navigation">
+        <Link to="/shop">
           <span>Shop</span>
         </Link>
         <span> &#8594; </span>
@@ -18,30 +19,23 @@ const CollectionItem = ({ item, match, addItem, openCart }) => {
           <span>{match.params.collectionId}</span>
         </Link>
       </p>
-      <div className='collectionItem-details'>
-        <div className='collectionItem-details-left'>
-          <div className='collectionItem-details-left__mainImage'>
-            <img src={item.imageUrl} alt='' />
-          </div>
-          <div className='collectionItem-details-left__images'>
-            <img src={item.imageUrl} alt='' />
-            <img src={item.imageUrl} alt='' />
-            <img src={item.imageUrl} alt='' />
-          </div>
+      <div className="collectionItem-details">
+        <div className="collectionItem-details-left">
+          <Gallery item={item} />
         </div>
-        <div className='collectionItem-details-right'>
+        <div className="collectionItem-details-right">
           <small>{match.params.collectionId.toUpperCase()}</small>
           <h2>{item.name}</h2>
           <StarRatingComponent
-            name='rate1'
+            name="rate1"
             starCount={5}
             value={item.rating}
-            className='rating'
+            className="rating"
           />
-          <div className='collectionItem-details-right__price'>
+          <div className="collectionItem-details-right__price">
             <p>${item.price} USD</p>
           </div>
-          <div className='collectionItem-details-right__desc'>
+          <div className="collectionItem-details-right__desc">
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis,
               itaque quos ducimus, doloribus illo adipisci, beatae possimus
@@ -53,8 +47,8 @@ const CollectionItem = ({ item, match, addItem, openCart }) => {
             </p>
           </div>
           <Button
-            type='button'
-            title='Add to Cart'
+            type="button"
+            title="Add to Cart"
             onClick={() => {
               addItem(item);
               openCart();
