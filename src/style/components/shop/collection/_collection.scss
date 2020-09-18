@@ -63,7 +63,7 @@
   display: grid;
   grid-template-columns: 0.5fr 1fr;
   grid-gap: 1rem;
-  margin: 0.5rem auto;
+  margin: 0rem auto;
   width: 900px;
 
   .collectionItem-details-left {
@@ -130,7 +130,7 @@
 
 .collectionItem__navigation {
   margin: 0rem auto;
-  width: 860px;
+  width: 880px;
   margin-right: auto;
   font-size: 13px;
 
@@ -185,6 +185,7 @@
     button {
       display: flex;
       justify-content: center;
+      margin-bottom: 10px;
     }
   }
 }
