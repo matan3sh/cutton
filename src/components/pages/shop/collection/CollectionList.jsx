@@ -2,14 +2,14 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { selectCollection } from 'store/shop/selectors';
 
-import { Loader } from 'components/app/shared';
+import { Spinner } from 'components/app/shared';
 import CollectionItem from 'components/pages/shop/collection-preview/CollectionItem';
 
-const CollectionList = ({ collection }) => {
+const CollectionList = ({ collection, isFetching }) => {
   return (
     <div className='collection'>
-      {!collection ? (
-        <Loader />
+      {!collection || isFetching ? (
+        <Spinner />
       ) : (
         <>
           {' '}
@@ -31,6 +31,7 @@ const CollectionList = ({ collection }) => {
 
 const mapStateToProps = (state, ownProps) => ({
   collection: selectCollection(ownProps.match.params.collectionId)(state),
+  isFetching: state.shop.isFetching,
 });
 
 export default connect(mapStateToProps)(CollectionList);

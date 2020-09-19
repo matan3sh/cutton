@@ -1,24 +1,16 @@
 import React, { useEffect } from 'react';
 import { Route } from 'react-router-dom';
-import { firestore, convertCollectionsSnapshotToMap } from 'config/firebase';
 
 import { connect } from 'react-redux';
-import { loadCollections } from 'store/shop/actions';
+import { fetchCollectionsStartAsync } from 'store/shop/actions';
 
 import CollectionList from 'components/pages/shop/collection-preview/CollectionList';
 import Collection from './collection/Collection';
 
-const Shop = ({ match, loadCollections }) => {
+const Shop = ({ match, fetchCollectionsStartAsync }) => {
   useEffect(() => {
-    const collectionRef = firestore.collection('collections');
-    const unsubscribe = collectionRef.onSnapshot(async (snapshot) => {
-      const collectionMap = convertCollectionsSnapshotToMap(snapshot);
-      loadCollections(collectionMap);
-    });
-    return () => {
-      unsubscribe();
-    };
-  }, [loadCollections]);
+    fetchCollectionsStartAsync();
+  }, [fetchCollectionsStartAsync]);
 
   return (
     <div className='wrapper'>
@@ -29,7 +21,7 @@ const Shop = ({ match, loadCollections }) => {
 };
 
 const mapDispatchToProps = {
-  loadCollections,
+  fetchCollectionsStartAsync,
 };
 
 export default connect(null, mapDispatchToProps)(Shop);

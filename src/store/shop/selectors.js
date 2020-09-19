@@ -27,3 +27,8 @@ export const selectCollectionItem = (
       ? collections[collectionUrlParam].items[collectionItemUrlParam]
       : null
   );
+
+export const selectCollectionFetching = createSelector(
+  [selectShop],
+  (shop) => shop.isFetching
+);

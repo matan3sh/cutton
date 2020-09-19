@@ -4,14 +4,14 @@ import { connect } from 'react-redux';
 import { addItem, openCart } from 'store/cart/actions';
 import { selectCollectionItem } from 'store/shop/selectors';
 import StarRatingComponent from 'react-star-rating-component';
-import { Button, Loader } from 'components/app/shared';
+import { Button, Spinner } from 'components/app/shared';
 import Gallery from 'components/app/shop/Gallery';
 
-const CollectionItem = ({ item, match, addItem, openCart }) => {
+const CollectionItem = ({ item, match, addItem, openCart, isFetching }) => {
   return (
     <div>
-      {!item ? (
-        <Loader />
+      {!item || isFetching ? (
+        <Spinner />
       ) : (
         <>
           {' '}
@@ -72,6 +72,7 @@ const mapStateToProps = (state, ownProps) => ({
     ownProps.match.params.itemId,
     ownProps.match.params.collectionId
   )(state),
+  isFetching: state.shop.isFetching,
 });
 
 const mapDispatchToProps = {
