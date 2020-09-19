@@ -21,11 +21,11 @@ const App = ({ setUser, clearUser, setUserProfile, userAuth, userProfile }) => {
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(async (authUser) => {
       if (authUser) {
-        setUser(authUser);
         const userRef = await createUserProfileDocument(authUser);
         userRef.onSnapshot((snapShot) => {
           setUserProfile({ id: snapShot.id, ...snapShot.data() });
         });
+        setUser(authUser);
       } else clearUser();
     });
     return () => {
